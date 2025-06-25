@@ -99,7 +99,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: rgb(171, 206, 183);
+		background: rgb(226, 207, 235);;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -2327,7 +2327,7 @@ input, select, textarea {
 		}
 
 		.big.image.left, .big.image.right {
-			max-width: 110%;
+			max-width: 50%;
 		}
 
 			.image.left img, .image.right img {
@@ -2974,6 +2974,12 @@ input, select, textarea {
 		-ms-transition: opacity 0.45s ease;
 		transition: opacity 0.45s ease;
 		opacity: 1;
+		background-color: rgb(238, 255, 236);
+		max-width: 1200px;
+		margin: 60px auto;
+		padding: 40px 5vw;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	}
 
 	#menu {

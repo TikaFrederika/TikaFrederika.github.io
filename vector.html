@@ -22,7 +22,7 @@
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Portfolio Tika Nouwens</span>
 								</a>
 
 							<!-- Nav -->
@@ -53,8 +53,16 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Vector Map</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p> Add vector map assignment here</p>
+							<h3>Data Collection</h3>
+							<p>For this assignment, we worked with ArcGIS online. First of all, we collected data using the mobile app in groups throughout Utrecht. This taught us about the difficulties and strenuous work that goes into data collection. We were interested in bike density throughout Utrecht, to see whether in certain areas, parked bikes would be in higher numbers. </p>
+							<h3>Parked Bike Density In Utrecht</h3>
+							<span class="image left"><img src="images/colors.png" alt="" /></span>
+							<p>We ran into some problems during this assignment. The data we had was formatted as polygons containing values, rather than points. This way, we were not able to calculate the density to create a density map, or use tools like hotspots. We first converted the data from a feature to a raster layer. This way we could create a colour scheme that would reflect the differences in values between the created squares. This is visible in the image to the left. You can see that two streets are coloured red, therefore having higher numbers of parked bikes. 
+								We eventually transformed the fields into centroids by using the “find centroid” tool. This way, we could treat them as points with values, which is actually usable for a density map. This created the map to the right. Once again, the same streets with higher numbers of parked bikes pop out. 
+							</p>
+							<span class="image right"><img src="images/densitymap.png" alt="" /></span>
+							<p>We also merged layers containing data available through ArcGIS online with our own to make a graph of possible links between data. We used a map with data showing, among others, the population density in small areas in Utrecht. We tried finding a possible link between population density and bike density, as seen in the graph below. However, as seen in the scatterplot, there seems to be no correlation between the two.
+							</p>
 							
 						</div>
 					</div>
@@ -64,12 +72,12 @@
 						<div class="inner">
 					
 							<section>
-								<h2>Follow</h2>
+								<h2>Find Me Elsewhere</h2>
 								<ul class="icons">
 									
-									<li><a href="https://github.com/bricker0" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="https://www.linkedin.com/in/brittaricker/" class="icon brands style2 fa-linkedin"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									<li><a href="https://github.com/TikaFrederika" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://linkedin.com/in/tika-nouwens-0229b1237" class="icon brands style2 fa-linkedin"><span class="label">500px</span></a></li>
+									<li><a href= "mailto: tikafrederika@hotmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
 								</ul>
 							</section>
 							<ul class="copyright">

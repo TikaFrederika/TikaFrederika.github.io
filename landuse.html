@@ -22,7 +22,7 @@
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Tika Nouwens Portfolio</span>
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Portfolio Tika Nouwens</span>
 								</a>
 
 							<!-- Nav -->
@@ -38,7 +38,6 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<h2>Menu</h2>
-						h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="vector.html">Vector</a></li>
@@ -53,16 +52,22 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Land Use Classification</h1>
+							<h1>Land Cover Classification</h1>
 							<h3>The region of interest</h3>
 							<p>For this assignment, I chose Brunei as my region of interest, since it is a tropical country with a high amount of
 								jungle-like areas. I thought this would make for an interesting land use classification and therefore make good maps of for example healthy 
-								vegetation. Below, there is a map in true color bands (432-band), showing the satellite images from sentinel two of Brunei between may and june of 2024. 
-								The images are filtered to display as little cloud coverage as possible. 
+								vegetation. I used google earth engine to create the polygon of Brunei merging it with sattellite data. I then analyzed it in ArcGIS pro. Below, there is a map in true color bands (432-band), showing the satellite images from sentinel two of Brunei between may and june of 2024. 
+								The images are filtered to display as little cloud coverage as possible. Still, there are quite a lot of clouds visible, which interfered with the analyses I 
+								ran.
 							</p>
 							<span class="image main"><img src="images/realcolors.png" alt="" /></span>
 							<h3>Healthy Vegetation</h3>
-								<p>Every material absorbs </p>
+								<p>Every material absorbs and reflects a certain spectrum of electromagnetic radiation, called a spectral signature. Based on this, land cover can be identified. For example, healthy vegetation
+									reflects a lot of near infrared (NIR). Using these spectra, a map can be made showing the healthy vegetation in a region. In this case, 
+									I made this map of Brunei, shown below on the right. I created a false color composite, by changing the bands to a B8, B4, B3 band, showing the higher infrared reflection of healthy vegetation in darker red.
+									I also ran a NDVI, showing the density and health of vegetation. This is the image below on the left. It shows the vegetation is mostly differences
+									on the east island. 
+								</p>
 							<span class="big image left"><img src="images/NDVI.png" alt="" /></span>
 							<span class="big image right"><img src="images/red.png" alt="" /></span>
 							
@@ -74,12 +79,12 @@
 						<div class="inner">
 							
 							<section>
-								<h2>Follow Me Elsewhere</h2>
+								<h2>Find Me Elsewhere</h2>
 								<ul class="icons">
 									
-									<li><a href="https://github.com/bricker0" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="https://www.linkedin.com/in/brittaricker/" class="icon brands style2 fa-linkedin"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									<li><a href="https://github.com/TikaFrederika" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://linkedin.com/in/tika-nouwens-0229b1237" class="icon brands style2 fa-linkedin"><span class="label">500px</span></a></li>
+									<li><a href= "mailto: tikafrederika@hotmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
 								</ul>
 							</section>
 							<ul class="copyright">
