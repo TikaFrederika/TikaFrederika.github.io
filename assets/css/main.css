@@ -314,7 +314,6 @@ input, select, textarea {
 	}
 
 /* Row */
-
 	.row {
 		display: flex;
 		flex-wrap: wrap;
@@ -2325,6 +2324,10 @@ input, select, textarea {
 
 		.image.left, .image.right {
 			max-width: 40%;
+		}
+
+		.big.image.left, .big.image.right {
+			max-width: 110%;
 		}
 
 			.image.left img, .image.right img {

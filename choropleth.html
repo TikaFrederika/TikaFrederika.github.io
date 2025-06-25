@@ -23,7 +23,9 @@
 		html, body {
 			height: 100%;
 			margin: 0;
+			padding: 0;
 		}
+
 		.leaflet-container {
 			height: 400px;
 			width: 600px;
@@ -79,20 +81,28 @@
 							<h1>Choropleth Map</h1>
 								<h3>What is a choropleth map?</h3>
 								<p>A choropleth map is a type of map that shows different values over geographical areas, making use of different colours or shades of colour. Choropleth maps are effective in conveying a large amount of information, presenting the viewer clearly with what is important. Darker colours stand out quite well, grabbing the viewers attention immediately. The maps are usually simple to understand. However, the view can be distorted by changing the range of each colour, which makes different colorings tell a different story. The values have abrupt boundaries, assuming one value per country and changing immediately at the borders, rather than internal differences or gradual changes.</p><br><br>
+								<span class="image main"><img src="final_version.png" alt="" /></span>
 								<h3>What does this map tell us?</h3>
 							<p>This map shows the proportion of seats held by women in national parliaments and local governments (indicator 5.5.1). The darker the colour, the higher the percentage of women in the national parliament. Countries outlined with a darker outline have a proportion of 50% or more. This map fits in with SDG goal 5: achieve gender equality and empower all women and girls. The target is to ensure women’ s full and effective participation and equal opportunities for leadership at all levels of decision making.</p> <br><br>
 							<h3>The Process</h3>	
 							<p>During the making of this map, I learned the basic workings of QGIS, such as where the main functions are located. I also learned to work with the database and join it in the right way with the map. Furthermore, I learned what different values and aspects meant, since the instructions did not always match up with the terms shown in my QGIS process. I also learned to triple check whether I saved my map properly, since I had to remake the entire thing this time.</p> 
 							<h3>Did the proportion of seats held by women change over time?</h3>
 								<p>I compared this map to a similar map made by my fellow student Lexi. She mapped the data for 2010, so there is a 14 year difference. There are a few differences to be found between the maps. First, in 2024, there are six countries with 50% or more seats held by women. In 2010, this was only one country. Furthermore, there are some countries that did not have data in 2010, but do in 2024. Lastly, the USA and Egypt increased the proportion of seats held by women largely.</p>
-							<span class="image main"><img src="images/final_version.png" alt="" /></span>
 							
 							<h1>Leaflet</h1>
-							<p>We made this example in class on day 2</p>
+							<p>We made an interactive map of the proportion of seats held by women. If you hover over the different countries, you can see the proportion. During the making of this, 
+								I learned a lot, working with attributes and javascript. For example, I figured out how to round up the percentages, instead of having many decimals.
+								This code makes use of a "if-else" process. Belof you can see the interactive map.
+							</p>
 					
 					<!-- UPDATE - add your leaflet code here! I already added the necessary headers - make sure you move your js file into the root directory too -->
-							<div id='map'></div>
-<script type="text/javascript" src="SDG15v3.js"></script>
+					<h3>
+<b>SDG 5<b> Achieve gender equality and empower all women and girls </h3></b><p></p>SDG Target 5.5: Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life
+					</p>		
+					<div id='map'></div>
+<script type="text/javascript" src="data2.js"></script>
+<div id='map'></div>
+<script type="text/javascript" src="data2.js"></script>
 <script type="text/javascript">
 
 	const map = L.map('map').setView([10, 10], 2);
@@ -117,8 +127,10 @@
 		// change class breaks and color depending on your values //UPDATE for our own legend - use colorbrewer.org for ideas for colors
 		//UPDATE legend to match the classes you coded - and the source of your data needs to reference the correct link
 	info.update = function (props) {
-		const contents = props ? `<b>${props.NAME_LONG}</b><br />${props.whole2} % of total land that is forest` : 'Hover over a state';
-		this._div.innerHTML = `<h4>15.1.1 Forest area as a proportion of total land area</h4>${contents}`;
+		const contents = props
+          ? `<b>${props.nam_en}</b><br />${props.value != null ? Math.round(props.value) : 'undefined'} % of total seats held by women`
+          : 'Hover over a country';
+		this._div.innerHTML = `<h4>15.1.1 Proportion of seats held by women in national parliaments in 2024 </h4>${contents}`;
 	};
 
 	info.addTo(map);
@@ -127,13 +139,11 @@
 	
 	
 	function getColor(d) {
-		return d > 100 ? '#005a32' :
-			d > 100  ? '#238b45' :
-			d > 80  ? '#41ab5d' :
-			d > 60  ? '#74c476' :
-			d > 40   ? '#a1d99b' :
-			d > 10   ? '#c7e9c0' :
-			d > 0   ? '#e5f5e0' : '#f7fcf5';
+		return d > 40 ? '#7105ff' :
+			d > 30  ? '#9544ff' :
+			d > 20   ? '#b882ff' :
+			d > 10   ? '#dcc1ff' :
+			d > 0   ? '#ffffff' : 'lightgray';
 	}
 
 //update the fill color to your variable 
@@ -141,10 +151,10 @@
 		return {
 			weight: 2,
 			opacity: 1,
-			color: 'white',
-			dashArray: '3',
+			color: 'gray',
+			dashArray: '2',
 			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.whole2)
+			fillColor: getColor(feature.properties.value)
 		};
 	}
 
@@ -195,7 +205,7 @@
 	legend.onAdd = function (map) {
 
 		const div = L.DomUtil.create('div', 'info legend');
-		const grades = [0, 10, 20, 40, 60, 80, 100];
+		const grades = [0, 10, 20, 30, 40];
 		const labels = [];
 		let from, to;
 
@@ -206,7 +216,7 @@
 			labels.push(`<i style="background:${getColor(from + 1)}"></i> ${from}${to ? `&ndash;${to}` : '+'}`);
 		}
 
-		labels.push(`<i style="background:#FFFFFF"></i>  No Data`);
+		labels.push(`<i style="background:lightgray"></i>  No Data`);
 
 		div.innerHTML = labels.join('<br>');
 		return div;
@@ -215,15 +225,6 @@
 	legend.addTo(map);
 
 </script>
-						<!-- extra credit - make your own esri online map- otherwise delete this section -->
-						<h1>ArcGIS Online</h1>
-							<p>Here is my choropleth map I made with real UN SDG indicator data. During a live in class demo in 2024. It is interactive but not great. You can make your own version using Esri online</p>
-						<iframe src="https://uni-utrecht.maps.arcgis.com/apps/instant/basic/index.html?appid=e0472c006c72436fbd8a6be0b1814603" width="100%" height="800px" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
-						
-						
-						</div>
-					</div>
-
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
